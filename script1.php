@@ -22,7 +22,7 @@ $carte = Carte::select("nom_proprietaire","mail_proprietaire","cumul")->orderBy(
 
 //PARTIE 3
 try{
-    $carte = Carte::where("id","=",7342)->firstOrFail();
+    $carte = Carte::findOrFail(7342);
     //echo $carte;
 }
 catch(\Illuminate\Database\Eloquent\ModelNotFoundException $e) {

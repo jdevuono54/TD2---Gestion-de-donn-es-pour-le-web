@@ -30,4 +30,4 @@ $item = new item();
 $item->libelle = "montest";
 $item->tarif = 15;
 
-$commande->items()->save($item);
+$commande->items()->attach(Item::find(2),["quantite"=>4]);

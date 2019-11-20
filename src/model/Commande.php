@@ -16,6 +16,6 @@ class Commande extends \Illuminate\Database\Eloquent\Model
     }
 
     public function items(){
-        return $this->belongsToMany(Item::class,"item_commande","commande_id","item_id");
+        return $this->belongsToMany(Item::class,"item_commande","commande_id","item_id")->withPivot("quantite");
     }
 }

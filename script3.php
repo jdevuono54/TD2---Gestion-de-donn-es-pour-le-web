@@ -13,7 +13,7 @@ $db->setAsGlobal();
 $db->bootEloquent();
 
 // PARTIE 1
-$commande = Commande::where("id","=","000b2a0b-d055-4499-9c1b-84441a254a36")->with("items")->get();
+$commande = Commande::where("id","=","000b2a0b-d055-4499-9c1b-84441a254a36")->with("items")->first();
 //echo $commande;
 
 //PARTIE 2
@@ -25,9 +25,10 @@ $commande = Commande::where("nom_client","=","Aaron McGlynn")->with("items")->ge
 //echo $commande;
 
 // PARTIE 4
-$commande = Commande::find("aaaa");
+/*$commande = Commande::find("aaaa");
 $item = new item();
 $item->libelle = "montest";
 $item->tarif = 15;
 
 $commande->items()->attach(Item::find(2),["quantite"=>4]);
+*/

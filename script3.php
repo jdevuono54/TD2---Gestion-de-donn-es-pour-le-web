@@ -25,10 +25,11 @@ $commande = Commande::where("nom_client","=","Aaron McGlynn")->with("items")->ge
 //echo $commande;
 
 // PARTIE 4
-/*$commande = Commande::find("aaaa");
-$item = new item();
-$item->libelle = "montest";
-$item->tarif = 15;
-
-$commande->items()->attach(Item::find(2),["quantite"=>4]);
+$commande = Commande::find("aaaa");
+/*
+$commande->items()->attach(Item::find(2),["quantite"=>3]);
+$commande->items()->attach(Item::find(6),["quantite"=>4]);
 */
+
+//PARTIE 5
+$commande->items()->updateExistingPivot(Item::find(6),["quantite"=>8]);

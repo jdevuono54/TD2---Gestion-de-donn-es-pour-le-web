@@ -14,7 +14,7 @@ $db->bootEloquent();
 
 // PARTIE 1
 $commande = Commande::where("id","=","000b2a0b-d055-4499-9c1b-84441a254a36")->with("items")->first();
-//echo $commande;
+echo $commande;
 
 //PARTIE 2
 $item = Item::with("intoCommandes")->get();
@@ -32,4 +32,4 @@ $commande->items()->attach(Item::find(6),["quantite"=>4]);
 */
 
 //PARTIE 5
-$commande->items()->updateExistingPivot(Item::find(6),["quantite"=>8]);
+//$commande->items()->updateExistingPivot(Item::find(6),["quantite"=>8]);

@@ -13,15 +13,19 @@ $db->setAsGlobal();
 $db->bootEloquent();
 
 // PARTIE 1
-$commande = Commande::where("id","=","000b2a0b-d055-4499-9c1b-84441a254a36")->with("items")->first();
-echo $commande;
+$commande = Commande::find("000b2a0b-d055-4499-9c1b-84441a254a36")->with(["items" => function($query){
+    $query->withTrashed();
+}])->get();
+//echo $commande;
 
 //PARTIE 2
-$item = Item::with("intoCommandes")->get();
+$item = Item::with("intoCommandes")->withTrashed()->get();
 //echo $item;
 
 //PARTIE 3
-$commande = Commande::where("nom_client","=","Aaron McGlynn")->with("items")->get();
+$commande = Commande::where("nom_client","=","Aaron McGlynn")->with(["items"=> function($query){
+    $query->withTrashed();
+}])->get();
 //echo $commande;
 
 // PARTIE 4

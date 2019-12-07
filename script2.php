@@ -13,9 +13,8 @@ $db->bootEloquent();
 
 
 //PARTIE 1
-$carte = Carte::find(42);
-$commande = $carte->Commandes;
-//echo $commande;
+$carte = Carte::with("Commandes")->find(42);
+//echo $carte;
 
 //PARTIE 2
 $carte = Carte::with("Commandes")->where("cumul",">",1000)->get();
@@ -49,8 +48,9 @@ $carte->Commandes()->save($commande);
 */
 
 // PARTIE 5
+/*
 $commande = Commande::find("cccc");
 $commande->carte_id = 11;
 $commande->save();
-
+*/
 

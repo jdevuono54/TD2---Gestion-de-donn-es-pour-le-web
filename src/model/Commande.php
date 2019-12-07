@@ -8,6 +8,7 @@ class Commande extends \Illuminate\Database\Eloquent\Model
 {
     protected $table = "commande";
     protected $primaryKey = "id";
+    protected $keyType = 'string';
     public $timestamps = true;
     public $incrementing = false;
 

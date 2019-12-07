@@ -13,7 +13,7 @@ $db->setAsGlobal();
 $db->bootEloquent();
 
 // PARTIE 1
-$commande = Commande::find("000b2a0b-d055-4499-9c1b-84441a254a36")->with(["items" => function($query){
+$commande = Commande::where("id","=","000b2a0b-d055-4499-9c1b-84441a254a36")->with(["items" => function($query){
     $query->withTrashed();
 }])->get();
 //echo $commande;
